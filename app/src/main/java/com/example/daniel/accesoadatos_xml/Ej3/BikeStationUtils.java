@@ -102,6 +102,10 @@ public class BikeStationUtils {
 
                         currentBikeStation.setLastUpdated(DateTime.parse(input).toCalendar(Locale.getDefault()));
                     }
+                    else if (parser.getName().equals("coordinates") && insideStation){
+                        currentBikeStation.setCoordinates(parser.nextText());
+                    }
+
                     break;
 
                 case XmlPullParser.END_TAG:

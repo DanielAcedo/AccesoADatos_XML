@@ -14,16 +14,18 @@ public class BikeStation {
     private int anchorsAvailable;
     private Calendar lastUpdated;
     private String mapUri;
+    private String coordinates;
 
     public BikeStation(){}
 
-    public BikeStation(String title, String state, int bikesAvailable, int anchorsAvailable, Calendar lastUpdated, String mapUri) {
+    public BikeStation(String title, String state, int bikesAvailable, int anchorsAvailable, Calendar lastUpdated, String mapUri, String coordinates) {
         this.title = title;
         this.state = state;
         this.bikesAvailable = bikesAvailable;
         this.anchorsAvailable = anchorsAvailable;
         this.lastUpdated = lastUpdated;
         this.mapUri = mapUri;
+        this.coordinates = coordinates;
     }
 
     public String getTitle() {
@@ -72,5 +74,13 @@ public class BikeStation {
 
     public void setMapUri(String mapUri) {
         this.mapUri = mapUri;
+    }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
     }
 }
