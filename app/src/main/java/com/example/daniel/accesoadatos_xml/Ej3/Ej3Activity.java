@@ -2,6 +2,8 @@ package com.example.daniel.accesoadatos_xml.Ej3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ public class Ej3Activity extends AppCompatActivity {
 
     private ListView listView;
     private BikeStationAdapter adapter;
+    private Button btn_refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,18 @@ public class Ej3Activity extends AppCompatActivity {
         setTitle("Lista de Estaciones Bicicleta");
 
         listView = (ListView)findViewById(R.id.listView);
+        btn_refresh = (Button)findViewById(R.id.btn_Refresh);
+        btn_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                refresh();
+            }
+        });
 
+        refresh();
+    }
+
+    private void refresh(){
         BikeStationUtils.getBikesAPI(Ej3Activity.this, new BikeStationUtils.callBackBikeAPI() {
             @Override
             public void onFinish(List<BikeStation> bikeStations) {
