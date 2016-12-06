@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<employees>
+	<employee>
+		<name>Pepe</name>
+		<position>Técnico</position>
+		<age>25</age>
+		<salary>1200</salary>
+	</employee>
+
+	<employee>
+		<name>Carlos</name>
+		<position>Recursos Humanos</position>
+		<age>32</age>
+		<salary>1000</salary>
+	</employee>
+
+	<employee>
+		<name>Jesús</name>
+		<position>Programador</position>
+		<age>27</age>
+		<salary>1500</salary>
+	</employee>
+
+	<employee>
+		<name>Miguel</name>
+		<position>Analista</position>
+		<age>38</age>
+		<salary>3000</salary>
+	</employee>
+
+	<employee>
+		<name>Eduardo</name>
+		<position>Guarda</position>
+		<age>35</age>
+		<salary>900</salary>
+	</employee>
+</employees>
