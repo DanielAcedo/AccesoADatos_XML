@@ -1,5 +1,6 @@
 package com.example.daniel.accesoadatos_xml.Ej3;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class Ej3Activity extends AppCompatActivity {
 
                 Calendar cal = ((BikeStation)listView.getItemAtPosition(i)).getLastUpdated();
                 String calFormat = String.format("%1$02d/%2$02d/%3$d %4$02d:%5$02d:%6$02d",cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.MONTH), cal.get(Calendar.YEAR), cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), cal.get(Calendar.SECOND));
+
                 bundle.putString(ViewStationActivity.TAG_NAME, ((BikeStation)listView.getItemAtPosition(i)).getTitle());
                 bundle.putString(ViewStationActivity.TAG_STATE, ((BikeStation)listView.getItemAtPosition(i)).getState());
                 bundle.putInt(ViewStationActivity.TAG_BIKES, ((BikeStation)listView.getItemAtPosition(i)).getBikesAvailable());
@@ -62,6 +64,12 @@ public class Ej3Activity extends AppCompatActivity {
     }
 
     private void refresh(){
+
+        final ProgressDialog dialog = new ProgressDialog(Ej3Activity.this);
+
+        dialog.setTitle("Cargando estaciones...");
+        dialog.show();
+
         BikeStationUtils.getBikesAPI(Ej3Activity.this, new BikeStationUtils.callBackBikeAPI() {
             @Override
             public void onFinish(List<BikeStation> bikeStations) {
@@ -69,10 +77,13 @@ public class Ej3Activity extends AppCompatActivity {
                 adapter = new BikeStationAdapter(Ej3Activity.this, bikeStationList);
 
                 listView.setAdapter(adapter);
+
+                dialog.dismiss();
             }
 
             @Override
             public void onException(Exception ex) {
+                dialog.dismiss();
                 Toast.makeText(Ej3Activity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

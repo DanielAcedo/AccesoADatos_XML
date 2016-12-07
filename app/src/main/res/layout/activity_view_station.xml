@@ -28,7 +28,7 @@
         android:id="@+id/txv_state"/>
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txv_state"
@@ -52,17 +52,22 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/lly_availables"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:id="@+id/txv_lastUpdated"/>
 
-    <WebView
+    <TextView
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/txv_lastUpdated"
-        android:id="@+id/wv_uri"></WebView>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:text="Pulsa aqui para mostrar mapa"
+        android:drawableTop="@drawable/appmapicon"
+        android:id="@+id/txv_uri"></TextView>
 </RelativeLayout>

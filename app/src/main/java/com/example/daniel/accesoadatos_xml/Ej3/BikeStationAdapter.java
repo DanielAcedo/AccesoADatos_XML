@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.daniel.accesoadatos_xml.R;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -33,7 +33,7 @@ public class BikeStationAdapter extends ArrayAdapter<BikeStation> {
             holder = new BikeStationHolder();
 
             holder.txv_name = (TextView)v.findViewById(R.id.txv_stationName);
-            holder.txv_state = (TextView)v.findViewById(R.id.txv_stationState);
+            holder.txv_lastUpdated = (TextView)v.findViewById(R.id.txv_lastUpdated);
 
             v.setTag(holder);
         }else{
@@ -41,13 +41,15 @@ public class BikeStationAdapter extends ArrayAdapter<BikeStation> {
         }
 
         holder.txv_name.setText(getItem(position).getTitle());
-        holder.txv_state.setText(getItem(position).getState());
+
+        Calendar cal = getItem(position).getLastUpdated();
+        holder.txv_lastUpdated.setText("Ult. actualización: "+String.format("%1$02d/%2$02d/%3$d %4$02d:%5$02d:%6$02d",cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.MONTH), cal.get(Calendar.YEAR), cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), cal.get(Calendar.SECOND)));
 
         return v;
 
     }
 
     public static class BikeStationHolder{
-        TextView txv_name, txv_state;
+        TextView txv_name, txv_lastUpdated;
     }
 }
