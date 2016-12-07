@@ -69,5 +69,6 @@
         android:gravity="center_vertical"
         android:text="Pulsa aqui para mostrar mapa"
         android:drawableTop="@drawable/appmapicon"
+        android:background="#31757575"
         android:id="@+id/txv_uri"></TextView>
 </RelativeLayout>
