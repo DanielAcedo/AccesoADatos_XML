@@ -1,5 +1,6 @@
 package com.example.daniel.accesoadatos_xml.Ej4;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -58,10 +59,17 @@ public class ViewNewsActivity extends AppCompatActivity {
     }
 
     private void downloadNews(){
+
+        final ProgressDialog dialog = new ProgressDialog(ViewNewsActivity.this);
+
+        dialog.setTitle("Descargando noticias...");
+        dialog.show();
+
         RestClient.get(newsSite.getUrl(), new FileAsyncHttpResponseHandler(ViewNewsActivity.this) {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
-                Toast.makeText(ViewNewsActivity.this, throwable.getMessage() , Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                Toast.makeText(ViewNewsActivity.this, "Error de conexión: "+throwable.getMessage() , Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -69,7 +77,7 @@ public class ViewNewsActivity extends AppCompatActivity {
                 try {
                     adapter = new RssNewAdapter(ViewNewsActivity.this, RssNewHelper.analyzeRssNews(file));
                     listView.setAdapter(adapter);
-
+                    dialog.dismiss();
 
                 } catch (XmlPullParserException e) {
                     Toast.makeText(ViewNewsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
