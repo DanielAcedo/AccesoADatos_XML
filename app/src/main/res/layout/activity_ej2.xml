@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_ej2"
+    android:background="#5484de"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,5 +10,152 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.daniel.accesoadatos_xml.Ej2.Ej2Activity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Fecha"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:background="@drawable/ej2cellselector"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="0.2"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Estado cielo"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:background="@drawable/ej2cellselector"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ej2cellselector"
+                    android:text="Temp min/max"
+                    android:textSize="17sp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="0.3"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ej2cellselector"
+                    android:id="@+id/txv_firstDayTitle"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="0.2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/ej2cellselector"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:id="@+id/lly_firstDayHours"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/ej2cellselector"
+                    android:id="@+id/lly_firstDayImages"
+                    android:orientation="horizontal">
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ej2cellselector"
+                    android:layout_weight="0.3"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:id="@+id/txv_firstDayTemp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/ej2cellselector"
+                    android:id="@+id/secondDayTitle"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="0.2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/ej2cellselector"
+                    android:id="@+id/lly_secondDayHours"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/ej2cellselector"
+                    android:id="@+id/lly_secondDayImages"
+                    android:orientation="horizontal">
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:background="@drawable/ej2cellselector"
+                    android:id="@+id/txv_secondDayTemp"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+
 
 </RelativeLayout>

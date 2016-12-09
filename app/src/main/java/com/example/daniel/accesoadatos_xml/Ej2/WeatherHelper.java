@@ -70,7 +70,11 @@ public class WeatherHelper {
                         insideTemp = true;
                     }
                     else if(tag.equals("estado_cielo") && insideDay && validDay){
-                        currentPrediction.getSkyStates().put(parser.getAttributeValue(0), SKYSTATE_IMAGE_PREFIX+parser.nextText()+".png");
+                        String hours = parser.getAttributeValue(0);
+                        String image = parser.nextText();
+
+                        if(!image.equals(""))
+                            currentPrediction.getSkyStates().put(hours, SKYSTATE_IMAGE_PREFIX+image+".png");
                     }
                     else if(tag.equals("maxima") && insideTemp){
                         currentPrediction.setTempMax(Integer.parseInt(parser.nextText()));
