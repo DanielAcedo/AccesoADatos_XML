@@ -23,7 +23,8 @@
         <activity android:name=".Ej3.Ej3Activity" />
         <activity android:name=".Ej3.ViewStationActivity" />
         <activity android:name=".Ej4.Ej4Activity" />
-        <activity android:name=".Ej4.ViewNewsActivity"></activity>
+        <activity android:name=".Ej4.ViewNewsActivity" />
+        <activity android:name=".Ej2.Ej2Activity"></activity>
     </application>
 
 </manifest>

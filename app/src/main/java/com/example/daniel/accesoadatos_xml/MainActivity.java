@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.daniel.accesoadatos_xml.Ej1.Ej1Activity;
+import com.example.daniel.accesoadatos_xml.Ej2.Ej2Activity;
 import com.example.daniel.accesoadatos_xml.Ej3.Ej3Activity;
 import com.example.daniel.accesoadatos_xml.Ej4.Ej4Activity;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btnEj2:
-                intent = new Intent(MainActivity.this, Ej1Activity.class);
+                intent = new Intent(MainActivity.this, Ej2Activity.class);
                 startActivity(intent);
                 break;
 
