@@ -29,13 +29,16 @@ import cz.msebera.android.httpclient.Header;
 
 public class Ej2Activity extends AppCompatActivity {
 
-    private LinearLayout firstDayHours, firstDayImages, secondDayHours, secondDayImages;
+    private LinearLayout firstDay, secondDay, firstDayHours, firstDayImages, secondDayHours, secondDayImages;
     private TextView txv_firstDayTemp, txv_secondDayTemp, txv_firstDayTitle, txv_secondDayTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ej2);
+
+        firstDay = (LinearLayout)findViewById(R.id.firstDay);
+        secondDay = (LinearLayout)findViewById(R.id.lly_secondDay);
 
         firstDayHours = (LinearLayout)findViewById(R.id.lly_firstDayHours);
         firstDayImages = (LinearLayout)findViewById(R.id.lly_firstDayImages);
@@ -73,6 +76,12 @@ public class Ej2Activity extends AppCompatActivity {
                     txv_secondDayTemp.setText(String.valueOf(secondPrediction.getTempMin())+"/"+String.valueOf(secondPrediction.getTempMax()));
 
                     //First day
+                    
+                    //Balance width depending of days
+                    LinearLayout.LayoutParams paramsParent = (LinearLayout.LayoutParams)firstDay.getLayoutParams();
+                    paramsParent.weight = firstPrediction.getSkyStates().size();
+                    firstDay.setLayoutParams(paramsParent);
+
                     for(String key : firstPrediction.getSkyStates().keySet()) {
                         String imagePath = firstPrediction.getSkyStates().get(key);
 
@@ -98,6 +107,11 @@ public class Ej2Activity extends AppCompatActivity {
                     }
 
                     //Second day
+
+                    paramsParent = (LinearLayout.LayoutParams)secondDay.getLayoutParams();
+                    paramsParent.weight = secondPrediction.getSkyStates().size();
+                    secondDay.setLayoutParams(paramsParent);
+
                     for(String key : secondPrediction.getSkyStates().keySet()) {
                         String imagePath = secondPrediction.getSkyStates().get(key);
 
